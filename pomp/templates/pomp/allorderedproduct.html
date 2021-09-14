@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{%block content%}
+{% include "accounts/adminbaner.html" %}
+<div class="container">
+  <table>
+    <tr><p class="title">
+<th width="200"><strong>نام مشتری </strong></th>
+<th width="200"><strong>نام کالا </strong></th>
+<th width="200"><strong>توضیحات  </strong></th>
+<th width="200"><strong>قیمت  </strong></th>
+<th width="200"><strong>تعداد </strong></th>
+<th width="200"><strong>قیمت کل </strong></th>
+</p>
+</tr>
+
+{% for order,customers,products in data %}
+<tr>
+
+{%for customer in customers%}
+<td>
+  {{customer.user.first_name}}    {{customer.user.last_name}}<br>
+</td>
+
+                    {%for product in products%}
+
+                      <td>
+
+                        {{product.brand}} <br>
+                        <td>
+                             {{product.discription}}</td>
+                             <td>
+                            {{product.price}} </td>
+                            <td>
+                          {{order.quantity}}<br></td>
+                          <td>
+                          {{order.totalprice}}</td>
+                          <td><p class="title">
+                            <a class="highlight" href="{% url 'pompsale:deleteorder' order.id%}"><strong> حذف سفارش</strong></a>
+                        </p>  </td>
+                        {%endfor%}
+
+    </tr>
+    {%endfor%}
+{%endfor%}
+        </table>
+  </div>
+<br><br><br><br><br>
+{%endblock%}

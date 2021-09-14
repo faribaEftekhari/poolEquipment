@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% load widget_tweaks %}
+{%block content%}
+<center>
+<form class="site-form"  method="POST">
+
+
+  {%csrf_token%}
+  {% render_field form.username class="form-control" placeholder="نام کاربری" %}
+    {% render_field form.password class="form-control" placeholder="پسورد" %}
+<input type="submit" name="loginuser" value="ورود">
+
+</form>
+</center>
+{%endblock%}

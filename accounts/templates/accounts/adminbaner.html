@@ -1,0 +1,79 @@
+
+{%block content%}
+{%if user.is_authenticated%}
+<table>
+  <tr>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'pompsale:create'%}">افزودن محصول جدید</a></li>
+
+
+      </ul>
+      </nav>
+    </td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+
+        {%if user.is_superuser%}
+      <li>  <a class="highlight" href="{%url 'accounts:signup'%}">ایجاد کاربر</a>
+      </li>
+      {%endif%}
+      </ul>
+      </nav>
+    </td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'accounts:showadminprofile'%}">پروفایل</a></li>
+
+
+      </ul>
+      </nav>
+    </td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'pompsale:showallproduct'%}">لیست کامل محصولات</a></li>
+
+
+      </ul>
+      </nav>
+    </td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'pompsale:allorderedproducts'%}">سفارشات</a></li>
+
+
+      </ul>
+      </nav>
+    </td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'accounts:allcustomers'%}">مشتری ها</a></li>
+
+
+      </ul>
+      </nav>
+    </td>
+  </tr>
+</table>
+
+
+
+{%endif%}
+{%endblock%}

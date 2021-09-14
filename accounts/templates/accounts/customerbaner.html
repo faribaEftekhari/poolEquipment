@@ -1,0 +1,30 @@
+
+{%block content%}
+<h3>
+
+
+<table>
+  <tr>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{% url 'pompsale:orderedproducts'%}"> لیست سفارشات</a></li>
+      </ul>
+      </nav></td>
+    <td>
+      <nav>
+      <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+      <ul>
+      <li>
+        <a class="highlight" href="{%url 'accounts:customerprofileview'%}">پروفایل</a>
+        </li>
+      </ul>
+      </nav>
+    </td>
+    <td></td>
+  </tr>
+</table>
+</h3>
+{%endblock%}

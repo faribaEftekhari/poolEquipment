@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+{% include "accounts/adminbaner.html" %}
+<div class="container">
+  <table>
+    <tr><p class="title">
+<th width="200"><strong>نام مشتری  </strong></th>
+<th width="200"><strong>نام کاربری  </strong></th>
+<th width="200"><strong>شماره تماس  </strong></th>
+</p>
+</tr>
+
+                    {%for customer in customers%}
+                  <tr>    <td>
+                        {{customer.user.first_name}} {{customer.user.last_name}} <br>
+                        <td>
+                             {{customer.user.username}}</td>
+                             <td>
+                            {{customer.mobile}} </td>
+                            <td><p class="title">
+                            <a class="highlight" href="{% url 'pompsale:customerordereds' customer.id%}"><strong>سفارشات</strong></a>
+                        </p>  </td>
+                        <td><p class="title">
+                        <a class="highlight" href="{% url 'accounts:deletecustomer' customer.id%}"><strong>حذف</strong></a>
+                    </p>  </td>
+                             </tr>
+                {%endfor%}
+
+  </table>
+  </div>
+<br><br><br><br><br>
+{%endblock%}

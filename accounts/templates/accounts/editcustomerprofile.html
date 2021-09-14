@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+{% load widget_tweaks %}
+{%block content%}
+{% include "accounts/customerbaner.html" %}
+<style media="screen">
+
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #00f;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  }
+
+  .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  }
+
+  .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  }
+
+  .button:hover span {
+  padding-right: 25px;
+  }
+
+  .button:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+
+
+</style>
+<br><br><br>
+<center>
+  <div class="container register-form">
+
+
+      <form class="site-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+                            {% render_field userForm.first_name class="form-control" placeholder="نام" %}
+                                {% render_field userForm.last_name class="form-control" placeholder="نام خانوادگی" %}
+                                  {% render_field userForm.username class="form-control" placeholder="نام کاربری" %}
+                                    {% render_field userForm.password class="form-control" placeholder="پسور جدید" %}
+                                      {% render_field customerForm.address class="form-control" placeholder="آدرس" %}
+                                        {% render_field customerForm.mobile class="form-control" placeholder="شماره موبایل" %}
+                                          <img src="{{ customerForm.instance.image.url }}" width="100" height="83"/><br>
+                                          {% render_field customerForm.image class="form-control" placeholder="عکس پروفایل" label="عکس پروفایل" %}
+
+
+        <button type="submit" class="button">ثبت تغییرات</button>
+      </form>
+
+    </div>
+
+</center>
+{%endblock%}

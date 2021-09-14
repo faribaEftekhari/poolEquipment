@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block title%}
+
+{%endblock%}
+
+  {%block content%}
+  <center>
+  <table>
+  <tr>
+    <td>
+
+      <img src="/static/baner.jpg" alt="">
+    </td>
+  </tr>
+  </table>
+  </center>
+  {%if key == '1'%}
+    {%include 'accounts/adminbaner.html'%}
+  {%elif key == '2'%}
+    {%include 'accounts/customerbaner.html'%}
+  {%endif%}
+  <div class="pomps-list">
+    {%for pomp in pomps%}
+    <div class="pomp-list">
+      <h2>
+        <a href="{% url 'pompsale:detalp' slugg=pomp.slug %}">{{pomp.brand}}</a>
+      </h2>
+      <h3>{{pomp.models}}</h3>
+      <h3>
+      {{pomp.snippet}}</h3>
+    <p><img src="{{pomp.image.url}}" alt=""></p>
+    <p class="price" >قیمت:
+      {{pomp.price}}
+    </p>
+      </div>
+    {%endfor%}
+
+  </div>
+{%endblock%}

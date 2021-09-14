@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<center>
+<table>
+<tr>
+  <td>
+
+    <img src="/static/baner.jpg" alt="">
+  </td>
+</tr>
+</table>
+</center>
+{%if key == '1'%}
+  {%include 'accounts/adminbaner.html'%}
+{%elif key == '2'%}
+  {%include 'accounts/customerbaner.html'%}
+{%endif%}
+    <div class="contain">
+
+    <h1>سایت فروش پمپ</h1>
+    <p>به سامانه فروش پمپ مرکزی کرج خوش آمدید</p>
+    </div>
+{%endblock%}

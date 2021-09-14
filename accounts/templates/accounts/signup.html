@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block content%}
+{%include 'accounts/adminbaner.html'%}
+<form class="site-form" action="/accounts/signup" method="POST">
+  {{form}}
+
+  {%csrf_token%}
+<input type="submit" name="registeruser" value="ثبت نام">
+</form>
+
+{%endblock%}

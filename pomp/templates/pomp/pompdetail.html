@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+{%block title%}
+جزئیات پمپ
+{%endblock%}
+  {%block content%}
+  {%if key == '1'%}
+    {%include 'accounts/adminbaner.html'%}
+  {%elif key == '2'%}
+    {%include 'accounts/customerbaner.html'%}
+  {%endif%}
+  <div class="pomp-detail">
+  <div class="detail">
+    <center>
+    <img src="{{pomp.image.url}}" alt="">
+    </center>
+  <h2>
+    <p>{{pomp.brand}}
+    </p>
+  </h2>
+  <h2>
+    <p>
+      {{pomp.modelnum}}
+    </p>
+    <p>
+      {{pomp.madein}}
+    </p>
+</h2>
+
+    <p>
+      {{ pomp.discription}}
+    </p>
+{%if pomp.price != 0%}
+    <p class="price">قیمت:
+      {{pomp.price}}
+    </p>
+{%else%}
+    <p>قیمت استعلامی</p>
+    <p>جهت کسب اطلاعات در مورد قیمت کالا با شماره پشتیبانی تماس حاصل شود</p>
+{%endif%}
+{%if user.is_authenticated %}
+<center>
+<form class="cart" action="{% url 'pompsale:order' pomp.id  %}" method="get">
+
+                  <input type="text" title="پر کردن این فیلد الزامی است" name="qty" id="qty" placeholder="تعداد" required oninvalid="this.setCustomValidity('لطفا تعداد کالای مورد سفارش را وارد کنید')">
+                  <span id="tedaderror"></span><br /><br />
+                  <button type="submit" name="button" >افزودن به سبد خرید</button>
+
+
+                </form>
+</center>
+  {%endif%}
+  </div>
+  </div>
+
+{%endblock%}

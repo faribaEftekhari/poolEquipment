@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block title%}
+افزودن پمپ جدید به لیس محصولات
+{%endblock%}
+{%block content%}
+{%include 'accounts/adminbaner.html'%}
+<br><br>
+<div class="create_pomp">
+  <h1>
+    مشخصات محصول جدید را وارد کنید
+  </h1>
+  <form class="site-form" action="{%url 'pompsale:create' %}" method="post" enctype="multipart/form-data">
+    {{form}}
+    {%csrf_token%}
+    <input type="submit" name="" value="افزودن محصول">
+  </form>
+
+</div>
+{%endblock%}

@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%load widget_tweaks%}
+{%block content%}
+<center>
+
+<form class="site-form" method="POST" enctype="multipart/form-data">
+                      {% render_field userForm.first_name class="form-control" placeholder="نام" %}
+                          {% render_field userForm.last_name class="form-control" placeholder="نام خانوادگی" %}
+                            {% render_field userForm.username class="form-control" placeholder="نام کاربری" %}
+                              {% render_field userForm.password class="form-control" placeholder="پسورد" %}
+                                {% render_field customerForm.address class="form-control" placeholder="آدرس" %}
+                                  {% render_field customerForm.mobile class="form-control" placeholder="شماره موبایل" %}
+                                    {% render_field customerForm.image class="form-control" placeholder="عکس پروفایل" %}
+
+  {%csrf_token%}
+<input type="submit" name="registeruser" value="ثبت نام">
+</form>
+</center>
+{%endblock%}

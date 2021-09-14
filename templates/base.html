@@ -1,0 +1,121 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" ">
+  <head class="main-header">
+
+    <meta charset="utf-8">
+    <title>
+
+      {% block title %}
+      {%endblock%}
+    </title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <script type="text/javascript" src="{%static 'pdate.min.js'%}"></script>
+      </head>
+      <body>
+      <div class="landing-layer home-page" style="background-color:lightblue"; >
+      <div class="container">
+      <header class="main-header">
+        <div class="">
+          <center>
+
+          <table>
+              <tr>   <td>
+        <h1 class="title-homepage">
+          <p>
+        فروشگاه افتخاری
+        </p>
+        </h1>
+      </td></tr>
+      <tr><td>
+        <a href="{% url '' %}" class="logo animated fadeInDown">
+          <img src="/static/favicon.ico" alt="" width="254" height="83">
+        </a>
+      </td>
+      <td>
+        <nav>
+        <span class="responsive-menu"><i class="zmdi zmdi-menu"></i></span>
+        <ul>
+          <li><a href="{% url 'about'%}">درباره ما</a></li>
+          <li><a href="{% url 'contact'%}">تماس با ما</a></li>
+          <li><a href="{% url 'pompsale:listp' %}">
+            لیست محصولات
+          </a></li>
+        </ul>
+        </nav>
+        <nav>
+          <ul>
+            {%if user.is_authenticated%}
+              <li>
+              <form class="logout_link" action="{% url 'accounts:logout' %}" method="post">
+                {%csrf_token%}
+                {{user.first_name}}
+                <button type="submit" name="logoutb">خروج</button>
+              </form>
+            </li>
+
+          {%else%}
+          <li>
+            <a href="{%url 'accounts:customerlogin'%}"> ورود </a>
+          </li>
+          <li>
+            <a href="{%url 'accounts:customersignup'%}"> ثبت نام</a>
+          </li>
+          {%endif%}
+          </ul>
+        </nav>
+
+      </td>
+      <td>
+        <nav><ul>
+        <li>
+        <span id="pdate1">تاریخ شمسی اینجا نمایش داده می‌شود</span>
+        <script type="text/javascript">
+          AMIB.showPDate( 'pdate1' );
+        </script>
+      </li></ul></nav>
+      </td>
+    </tr>
+      <tr><td></td><td>
+        <div class="landing-content">
+
+          <div class="cooperation">
+              بررسی و خرید هوشمند تجهیزات جانبی استخر
+              <h2></h2>
+              <span>فروش عمده و جزئی</span>
+          </div>
+
+        </div>
+      </td>
+
+      </tr>
+      </table>
+
+      <form  action="{% url 'pompsale:search' %}" method="get">
+        <div class="landing-search" >
+          <table><tr><td>
+            <input class="autocomplete" type="search" placeholder="نام کالا، مدل کالا و دربار کالای مورد نظر وارد کنید" name="query" id="query">
+          </td><td>
+        <button  type="submit">
+            <svg width="15px" height="15px">
+                    <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+            </svg>
+
+          </button>
+        </td></tr></table>
+        </div>
+      </form>
+  </center>
+          </div>
+
+
+  </header>
+</div>
+  </div>
+
+        {%block content%}
+        {%endblock%}
+
+
+      </body>
+    </html>
