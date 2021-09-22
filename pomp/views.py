@@ -81,7 +81,7 @@ def order_register(request,idkey):
     tp=q * p
     neworder.totalprice= tp
     neworder.save()
-    return HttpResponse("order register")
+    return ordered_product(request)
 
 @login_required(login_url='accounts/customerlogin')
 def ordered_product(request):

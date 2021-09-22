@@ -1,8 +1,15 @@
 {%extends 'base.html'%}
 {%block content%}
 {% include "accounts/customerbaner.html" %}
+<br><br>
+<style >
+ th{
+      border: 1px solid blue;
+  }
+
+</style>
 <div class="container">
-  <table>
+  <table style=" border : 1px solid blue;border-collapse:collapse;">
     <tr><p class="title">
 <th width="200"><strong>نام کالا </strong></th>
 <th width="200"><strong>توضیحات  </strong></th>
@@ -18,18 +25,18 @@
                     {%for product in products%}
 
 
-                      <td>
+                      <td style="border: 1px solid blue;">
 
                         {{product.brand}} <br>
-                        <td>
+                        <td style="border: 1px solid blue;">
                              {{product.discription}}</td>
-                             <td>
+                             <td style="border: 1px solid blue;">
                             {{product.price}} </td>
-                            <td>
+                            <td style="border: 1px solid blue;">
                           {{order.quantity}}<br></td>
-                          <td>
+                          <td style="border: 1px solid blue;">
                           {{order.totalprice}}</td>
-                          <td><p class="title">
+                          <td style="border: 1px solid blue;"><p class="title">
                             <a class="highlight" href="{% url 'pompsale:deleteorder' order.id%}"><strong> حذف سفارش</strong></a>
                         </p>  </td>
 

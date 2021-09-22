@@ -1,26 +1,33 @@
 {%extends 'base.html'%}
 {%block content%}
 {% include "accounts/adminbaner.html" %}
+<br><br>
+<style >
+ th{
+      border: 1px solid blue;
+  }
+
+</style>
 <div class="container">
-  <table>
+  <table style=" border : 1px solid blue;border-collapse:collapse;">
     <tr><p class="title">
-<th width="200"><strong>نام مشتری  </strong></th>
-<th width="200"><strong>نام کاربری  </strong></th>
-<th width="200"><strong>شماره تماس  </strong></th>
+<th width="200" style="text-align:right;"><strong>نام مشتری  </strong></th>
+<th width="200" style="text-align:right;"><strong>نام کاربری  </strong></th>
+<th width="200" style="text-align:right;"><strong>شماره تماس  </strong></th>
 </p>
 </tr>
 
                     {%for customer in customers%}
-                  <tr>    <td>
+                  <tr>    <td style="border: 1px solid blue;">
                         {{customer.user.first_name}} {{customer.user.last_name}} <br>
-                        <td>
+                        <td style="border: 1px solid blue;">
                              {{customer.user.username}}</td>
-                             <td>
+                             <td style="border: 1px solid blue;">
                             {{customer.mobile}} </td>
-                            <td><p class="title">
+                            <td style="border: 1px solid blue;"><p class="title">
                             <a class="highlight" href="{% url 'pompsale:customerordereds' customer.id%}"><strong>سفارشات</strong></a>
                         </p>  </td>
-                        <td><p class="title">
+                        <td style="border: 1px solid blue;"><p class="title">
                         <a class="highlight" href="{% url 'accounts:deletecustomer' customer.id%}"><strong>حذف</strong></a>
                     </p>  </td>
                              </tr>

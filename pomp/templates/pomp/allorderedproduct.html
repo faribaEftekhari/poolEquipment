@@ -1,15 +1,22 @@
 {%extends 'base.html'%}
 {%block content%}
 {% include "accounts/adminbaner.html" %}
+<br><br>
+<style >
+ th{
+      border: 1px solid blue;
+  }
+
+</style>
 <div class="container">
-  <table>
+  <table style=" border : 1px solid blue;border-collapse:collapse;">
     <tr><p class="title">
-<th width="200"><strong>نام مشتری </strong></th>
-<th width="200"><strong>نام کالا </strong></th>
-<th width="200"><strong>توضیحات  </strong></th>
-<th width="200"><strong>قیمت  </strong></th>
-<th width="200"><strong>تعداد </strong></th>
-<th width="200"><strong>قیمت کل </strong></th>
+<th width="200" style="text-align:right;"><strong>نام مشتری </strong></th>
+<th width="200" style="text-align:right;"><strong>نام کالا </strong></th>
+<th width="200" style="text-align:right;"><strong>توضیحات  </strong></th>
+<th width="200" style="text-align:right;"><strong>قیمت  </strong></th>
+<th width="200" style="text-align:right;"><strong>تعداد </strong></th>
+<th width="200" style="text-align:right;"><strong>قیمت کل </strong></th>
 </p>
 </tr>
 
@@ -17,24 +24,24 @@
 <tr>
 
 {%for customer in customers%}
-<td>
+<td style="border: 1px solid blue;">
   {{customer.user.first_name}}    {{customer.user.last_name}}<br>
 </td>
 
                     {%for product in products%}
 
-                      <td>
+                      <td style="border: 1px solid blue;">
 
                         {{product.brand}} <br>
-                        <td>
+                        <td style="border: 1px solid blue;">
                              {{product.discription}}</td>
-                             <td>
+                             <td style="border: 1px solid blue;">
                             {{product.price}} </td>
-                            <td>
+                            <td style="border: 1px solid blue;">
                           {{order.quantity}}<br></td>
-                          <td>
+                          <td style="border: 1px solid blue;">
                           {{order.totalprice}}</td>
-                          <td><p class="title">
+                          <td style="border: 1px solid blue;"><p class="title">
                             <a class="highlight" href="{% url 'pompsale:deleteorder' order.id%}"><strong> حذف سفارش</strong></a>
                         </p>  </td>
                         {%endfor%}
