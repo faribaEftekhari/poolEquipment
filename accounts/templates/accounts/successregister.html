@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<center>
+<table>
+<tr>
+  <td>
+
+    <img src="/static/baner.jpg" alt="">
+  </td>
+</tr>
+</table>
+</center>
+{%if key == '1'%}
+  {%include 'accounts/adminbaner.html'%}
+{%elif key == '2'%}
+  {%include 'accounts/customerbaner.html'%}
+{%endif%}
+<center>
+    <h2>
+      ثبت نام با موفقیت انجام شد
+      </h2>
+      <h2>
+        لطفا پروفایل کاربری را تکمیل نمایید
+        </h2>
+      </center>
+
+{%endblock%}

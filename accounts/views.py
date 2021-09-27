@@ -18,7 +18,7 @@ def signup_user(request):
             try:
                 user=form.save()
                 login(request,user)
-                return HttpResponse('user register successfully')
+                return render(request,'accounts/successregister.html')
             except:
                 pass
 
@@ -97,14 +97,7 @@ def customer_signup_view(request):
             customer.save()
             my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
             my_customer_group[0].user_set.add(user)
-            return redirect('accounts:customerlogin')
-            # return HttpResponse("successfully create user")
-            # if customer.isseller == True:
-                # return render(request,'pomp/pompdetail.html',{'form':userform})
-            # elif customer.isbuyer == True:
-                # return render(request,'pomp/pomplist.html',{'form':userform})
-
-
+            return HttpResponseRedirect('customerlogin')
     return render(request,'accounts/customersignup.html',context=mydict)
 #homepage customer
 @login_required(login_url='customerlogin')
